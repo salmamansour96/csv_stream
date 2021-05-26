@@ -64,6 +64,8 @@ public class CountryDAO {
 		}
 		return country_cities;
 	}
-	
+	public void sort_cities(Map<String , List<City>> country_cities, String code) {
+		country_cities.get(code).sort((c,t)->c.getPopulation() > t.getPopulation()? 1:-1);
+	}
 
 }
