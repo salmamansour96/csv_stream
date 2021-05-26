@@ -26,7 +26,11 @@ public class City {
 	public String getName() {
 		return name;
 	}
-
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getName() +" "+getPopulation() +" "+ getCountry_code();
+	}
 	public void setName(String name) {
 		this.name = name;
 	}
