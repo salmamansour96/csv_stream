@@ -40,7 +40,7 @@ public class CountryDAO {
 			{
 			//System.out.println("Line After reading"+"  "+line);
 			String [] parts=line.split(",");
-			p_list.add(new Country (parts[0],parts[1],parts[2],Double.parseDouble(parts[4]),Integer.parseInt(parts[3]),Double.parseDouble(parts[5]),Integer.parseInt(parts[6])));
+			p_list.add(new Country (parts[0].trim(),parts[1],parts[2],Double.parseDouble(parts[4]),Integer.parseInt(parts[3]),Double.parseDouble(parts[5]),Integer.parseInt(parts[6])));
 				
 			
 		}}while(line!=null);
@@ -64,8 +64,15 @@ public class CountryDAO {
 		}
 		return country_cities;
 	}
-	public void sort_cities(Map<String , List<City>> country_cities, String code) {
-		country_cities.get(code).sort((c,t)->c.getPopulation() > t.getPopulation()? 1:-1);
+	public  void sort_cities(Map<String , List<City>> country_cities, String code) {
+		if(country_cities.containsKey(code)) {
+			country_cities.get(code).sort((c,t)->c.getPopulation()
+					> t.getPopulation()? 1:-1);
+
+		}
+		else {
+			System.out.println("noooooooo cities for code");
+		}
 	}
 
 }
