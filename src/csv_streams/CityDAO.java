@@ -24,8 +24,7 @@ public class CityDAO {
 			e.printStackTrace();
 		}
 		
-		if(line!=null)
-			System.out.println(line);
+		
 		do
 		{   try {
 			line=br.readLine();
