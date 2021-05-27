@@ -10,11 +10,10 @@ import java.util.stream.Stream;
 public class CountryStreams {
 	 public static Map<String, City> hightest_pop_City(Map<String, List<City>> country_cities) {
 		 Map<String, City> country_pop = new HashMap<String, City>();
-		 for(String key : country_cities.keySet()) {
-			Optional<City> city =  country_cities.get(key).stream().max((m,t)->m.getPopulation()> t.getPopulation()?1:-1);
-			country_pop.put(key,city.get()); 
-			
-		 }
+		 country_cities.keySet().stream().forEach(m->
+			country_pop.put(m,
+			country_cities.get(m).stream().max((c,t)->c.getPopulation()> t.getPopulation()?1:-1).get())
+		 );
 		 return country_pop;
 	}
 	 public static City hightest_pop_capital(List<Country> countries ,List<City> cities) {
