@@ -41,7 +41,7 @@ public class CityDAO {
 			
 			
 				
-				p_list.add(new City (Integer.parseInt(parts[0]),Integer.parseInt(parts[2]),parts[1],parts[3]));
+				p_list.add(new City (Integer.parseInt(parts[0]),Integer.parseInt(parts[2]),parts[1],parts[3].trim()));
 				
 			
 		}}while(line!=null);
